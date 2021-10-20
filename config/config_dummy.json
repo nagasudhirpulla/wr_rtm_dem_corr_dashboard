@@ -1,0 +1,10 @@
+{
+    "wbesBase": "",
+    "pspConnStr": "",
+    "utils":[],
+    "flaskSecret":"abcd",
+    "mode": "d",
+    "flaskSecret":"",
+    "mode": "p",
+    "flaskPort": 80
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTM Buy Data</title>
+</head>
+
+<body>
+    <h2>RTM Buy Data</h2>
+    <form method="post">
+        <span>Date - </span> <input type="date" name="startDate" value="{{data.startDt}}" /> <button>Load Data</button>
+    </form>
+    <br />
+    {% if 'rtm' in data %}
+    <table>
+        <thead>
+            <tr>
+                <th colspan="6">RTM data for {{data.startDt}}</th>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <th>RTM IEX MU</th>
+                <th>RTM PXI MU</th>
+                <th>RTM Buy MU</th>
+                <th>Demand Met MU</th>
+                <th>Demand met by RTM (%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data['rtm'] %}
+            <tr>
+                <td>{{item.utilName}}</td>
+                <td>{{item.rtmIexMu}}</td>
+                <td>{{item.rtmPxiMu}}</td>
+                <td>{{item.rtmBuyMu}}</td>
+                <td>{{item.demMetMu}}</td>
+                <td>{{item.demMetPerc}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    <style>
+        table,
+        td,
+        th {
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 15px;
+        }
+    </style>
+</body>
+
+</html>
